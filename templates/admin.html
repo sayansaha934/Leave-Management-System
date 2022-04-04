@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #edecf7;
+    }
+
+    .nav-logo {
+      width: 18%;
+
+      padding: 10px auto 10px 15px;
+    }
+
+    .nav-name {
+      padding-left: 890px;
+      font-weight: bold;
+      color: #233c7b;
+
+    }
+    .logout{
+      font-weight: bold;
+      padding-right: 20px;
+      text-decoration: none;
+      
+    }
+
+    #admin-buttons {
+      width: 70%;
+      margin: 100px auto auto auto;
+      
+    }
+   
+    .message {
+      width: 30%;
+      position: fixed;
+      top: 0;
+      left: 35%;
+    }
+  </style>
+
+
+  <title>Admin</title>
+</head>
+
+<body>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <img src="https://learn.ineuron.ai/_next/image?url=%2Fimages%2Fineuron-logo.png&w=750&q=75" alt="ineuron.ai"
+        class="nav-logo">
+      <div class="nav-name">Admin</div>
+      <a href="/logout" class="link-danger logout">Logout</a>
+    </div>
+  </nav>
+  <!-- Admin buttons -->
+  <div id="admin-buttons">
+    <div class="row">
+      <div class="col">
+        <a href="/applied-leaves"> <button type="button" class="btn btn-primary">Manage Leaves</button></a>
+      </div>
+      <div class="col">
+        <!-- Add Employee Button-->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddEmployeeModal">
+          Add Employee
+        </button>
+
+      </div>
+      <div class="col">
+        <!-- Add Many Employee Button -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddManyEmployeeModal">
+          Upload File
+        </button>
+      </div>
+      <div class="col">
+        <!-- Delete Employee Button -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteEmployeeModal">
+          Delete Employee
+        </button>
+      </div>
+      <div class="col">
+        <!-- Edit Employee Button -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditEmployeeModal">
+          Edit Employee
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Add One Employee Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="AddEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/add-one" method="POST">
+          <div class="modal-body">
+            <h6>Name</h6>
+            <input class="form-control" type="text" placeholder="Enter full name" aria-label="default input example"
+              name="name">
+            <h6>Email Id</h6>
+            <input class="form-control" type="text" placeholder="example@gmail.com" aria-label="default input example"
+              name="email_id">
+            <h6>Contact Number</h6>
+            <input class="form-control" type="text" placeholder="Enter 10 digit number "
+              aria-label="default input example" name="contact_number">
+            <h6>D.O.B</h6>
+            <input class="form-control" type="date" placeholder="Default input" aria-label="default input example"
+              name="dob">
+            <h6>Date of joining</h6>
+            <input class="form-control" type="date" placeholder="Default input" aria-label="default input example"
+              name="doj">
+            <h6>Position</h6>
+            <select class="form-select" aria-label="Default select example" name="position">
+              <option selected>Select Position</option>
+              <option value="Developer">Developer</option>
+              <option value="Sales">Sales</option>
+              <option value="Marketing">Marketing</option>
+              <option value="HR">HR</option>
+            </select>
+            <h6>Salary</h6>
+            <input class="form-control" type="text" placeholder="ex-20000" aria-label="default input example"
+              name="salary">
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Add Many Employee Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="AddManyEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Employee Info</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/add-many" method="POST" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="mb-3">
+              <!-- <label for="formFile" class="form-label"></label> -->
+              <input class="form-control" type="file" id="formFile" name="filepath">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete employee Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="DeleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/delete-employee" method="POST">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                name="email_id">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Search To Edit Employee Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="EditEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Search Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/edit" method="POST">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                name="email_id">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Message -->
+  {% with message = get_flashed_messages(with_categories=true) %}
+  {% if message %}
+  {% for category, msg in message %}
+  <div class="message">
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+      {{msg}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</body>
+
+</html>

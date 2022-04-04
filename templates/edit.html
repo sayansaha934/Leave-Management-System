@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color:#edecf7 ;
+        }
+
+        #editInfo {
+            width: 40%;
+            margin: 20px auto;
+        }
+
+        #edit-submit-btn {
+            margin-top: 20px;
+            margin-left: 40%;
+        }
+
+        #edit-label {
+            font-size: 35px;
+            color: #233c7b;
+            font-weight: bold;
+            margin: 5px auto auto 45%;
+        }
+    </style>
+
+    <title>Edit Employee</title>
+</head>
+
+<body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <!-- <div class="editInfo" contenteditable="true">
+        <form action="/updateEmployeeInfo" method="POST">
+            <h6>Employe Id</h6>
+            <textarea name="" id="" cols="30" rows="1" readonly>{{info['emp_id']}}</textarea>
+            <h6>Name</h6>
+            <textarea name="name" id="" cols="30" rows="1">{{info['name']}}</textarea>
+            <h6>Email Id</h6>
+            <textarea name="email_id" id="" cols="30" rows="1" readonly>{{info['email_id']}}</textarea>
+            <h6>Contact No.</h6>
+            <textarea name="contact_no" id="" cols="30" rows="1">{{info['contact_no']}}</textarea>
+            <h6>D.O.B</h6>
+            <textarea name="dob" id="" cols="30" rows="1">{{info['dob']}}</textarea>
+            <h6>Join Date</h6>
+            <textarea name="join_date" id="" cols="30" rows="1">{{info['join_date']}}</textarea>
+            <h6>Position</h6>
+            <textarea name="position" id="" cols="30" rows="1">{{info['position']}}</textarea>
+            <h6>Salary</h6>
+            <textarea name="salary" id="" cols="30" rows="1" >{{info['salary']}}</textarea><br>
+            <button type="submit" class="btn btn-primary"  contenteditable="false">Save Changes</button>
+
+        </form>
+    </div> -->
+
+    <div id="edit-label">Edit Info</div>
+
+    <div id="editInfo">
+        <form action="/updateEmployeeInfo" method="POST">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Emp ID</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                value="{{info['emp_id']}}" readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" value="{{info['name']}}"
+                                name="name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Email ID</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                value="{{info['email_id']}}" name="email_id">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Contact No.</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                value="{{info['contact_no']}}" name="contact_no">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">D.O.B</label>
+                            <input type="date" class="form-control" id="formGroupExampleInput" value="{{info['dob']}}"
+                                name="dob">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Join Date</label>
+                            <input type="date" class="form-control" id="formGroupExampleInput"
+                                value="{{info['join_date']}}" name="join_date">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Position</label>
+                            <select class="form-select" aria-label="Default select example" name="position">
+                                <option value="{{info['position']}}">{{info['position']}}*</option>
+                                <!-- <option selected value="info['position']">{{info['position']}}* -->
+                                </option>
+                                <option value="Developer">Developer</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="HR">HR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Salary</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                value="{{info['salary']}}" name="salary">
+                        </div>
+                    </div>
+                </div>
+                <div id="edit-submit-btn">
+                    <button type="submit" class="btn btn-primary" contenteditable="false">Save Changes</button>
+                </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
