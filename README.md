@@ -4,6 +4,15 @@
 - Employee's can apply for leave, check leave status and claim money 
 
 ![leave manage page](leave-manage-page.png)
+# Application Link
+https://leave-management-application.herokuapp.com/
+
+# Project Demo
+https://youtu.be/v_3vFV5tdg4
+
+# Documents
+HLD/LLD/Architecture/Wireframe/DPR - https://drive.google.com/drive/folders/1qkGCevXZA3GA-fF9Ibx_tlJNTd6qtCj3?usp=sharing
+
 # Database
 Cassandra database has been used to store information of employee and for logging
 # :desktop_computer:	 Installation
